@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ReactPlayer from "react-player";
 import Loading from "./Loading";
 
 import { useResultContext } from "../contexts/ResultContextProvider";
@@ -10,14 +9,17 @@ const Results = () => {
   const location = useLocation();
 
   useEffect(() => {
-    getResults("q=fenerbahçe&num=10");
-  }, []);
+    getResults(`q=${searchTerm}&num=30`);
+  }, [searchTerm]);
+  useEffect(() => {
+    getResults;
+  });
 
   if (isLoading) return <Loading />;
   console.log(location.pathname);
 
   switch (location.pathname) {
-    case "/search":
+    case "/":
       return (
         <div className="flex flex-row justify-center">
           <div className="flex flex-wrap justify-between space-y-6 sm:px-56">
@@ -42,16 +44,6 @@ const Results = () => {
           </div>
         </div>
       );
-    case "/":
-      return "HOME";
-    case "/images":
-      return "IMAGES";
-    case "/news":
-      return "NEWS";
-    case "/videos":
-      return "VIDEOS";
-    default:
-      return "ERROR";
   }
 };
 

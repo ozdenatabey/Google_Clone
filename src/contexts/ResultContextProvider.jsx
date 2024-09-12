@@ -16,8 +16,8 @@ export const ResultContextProvider = ({ children }) => {
     const response = await fetch(`${baseUrl}${type}`, {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "20989dcbe7mshaa360e3218e30b5p1e12e3jsn6a21f00a7e3c",
         "x-rapidapi-host": "real-time-web-search.p.rapidapi.com",
+        "x-rapidapi-key": "20989dcbe7mshaa360e3218e30b5p1e12e3jsn6a21f00a7e3c",
       },
     });
 
